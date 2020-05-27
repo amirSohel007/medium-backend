@@ -1,21 +1,21 @@
-const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const RegisterSchema = Schema({
-    username: {
-        type:String,
-        require:true
-    },
-    
-    email: {
-        type:String,
-        require:true
-    },
+  username: {
+    type: String,
+    require: true,
+  },
 
-    password: {
-        type:Number,
-        require:true
-    }
-})
+  email: {
+    type: String,
+    require: true,
+  },
 
-module.exports = mongoose.model('Register', RegisterSchema)
+  password: {
+    type: Number,
+    require: true,
+  },
+});
+
+module.exports = mongoose.model("Register", RegisterSchema);
