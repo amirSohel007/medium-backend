@@ -11,7 +11,7 @@ registerUser = async (req, res) => {
     const data = await newuser.save();
     res.json(data);
   } catch (error) {
-    res.json(error);
+    res.json({ message: error });
   }
 };
 

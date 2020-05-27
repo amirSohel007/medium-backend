@@ -7,7 +7,7 @@ loginUser = async (req, res) => {
     if (user != null) res.json({ status: true });
     else res.json("User not found");
   } catch (error) {
-    res.json(error);
+    res.json({ message: error });
   }
 };
 

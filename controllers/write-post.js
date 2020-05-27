@@ -10,8 +10,8 @@ createPost = async (req, res) => {
     const data = await newpost.save();
     res.json(data);
   } catch (error) {
-    res.json(error);
+    res.json({ message: error });
   }
 };
 
-module.exports = createPost
+module.exports = createPost;

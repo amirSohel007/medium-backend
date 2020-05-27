@@ -6,7 +6,6 @@ const RegisterSchema = Schema({
     type: String,
     require: true,
   },
-
   email: {
     type: String,
     require: true,
@@ -15,6 +14,21 @@ const RegisterSchema = Schema({
   password: {
     type: Number,
     require: true,
+  },
+
+  posts: {
+    type: Array,
+    default: 0,
+  },
+
+  followers: {
+    type: Array,
+    default: 0,
+  },
+
+  following: {
+    type: Array,
+    default: 0,
   },
 });
 
