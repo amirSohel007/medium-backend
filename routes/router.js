@@ -24,4 +24,8 @@ routes.get('/users', getUsers)
 //single user
 routes.get('/user/:id', singleUser)
 
+routes.get('/testing', (req, res) => {
+    res.json({status:'application working !'})
+})
+
 module.exports = routes;
