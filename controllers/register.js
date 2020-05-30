@@ -1,9 +1,12 @@
 const Register = require("../models/Register");
 const bcrypt = require("bcrypt");
+const jwt = require('jsonwebtoken');
 
 registerUser = async (req, res) => {
   const saltRounds = 10;
+
   const { username, email, password } = req.body;
+  const token = jwt.sign({email:email}, process.env.PRIVATE_KEY)
   bcrypt.hash(password, saltRounds, async (err, hash) => {
     if (err)
       return res.sendStatus("401").json({ message: "something went wrong" });
@@ -16,7 +19,7 @@ registerUser = async (req, res) => {
       });
       const data = await newuser.save();
       data.password = hash;
-      res.json(data);
+      res.json({token});
     } catch (error) {
       res.json({ message: error });
     }
