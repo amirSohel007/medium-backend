@@ -12,7 +12,7 @@ const RegisterSchema = Schema({
   },
 
   password: {
-    type: Number,
+    type: String,
     require: true,
   },
 
