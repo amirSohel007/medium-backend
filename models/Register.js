@@ -18,17 +18,14 @@ const RegisterSchema = Schema({
 
   posts: {
     type: Array,
-    default: 0,
   },
 
   followers: {
     type: Array,
-    default: 0,
   },
 
   following: {
     type: Array,
-    default: 0,
   },
 });
 
