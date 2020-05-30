@@ -10,11 +10,11 @@ loginUser = async (req, res) => {
         if (result) {
           res.json({ status: true });
         } else {
-          return res.json({ message: "password not matched" });
+          return res.json({ message: "Password not matched" });
         }
       });
     } else {
-      res.json({ message: "user not found" });
+      res.json({ message: "User not found" });
     }
   } catch (error) {
     console.log(error);
