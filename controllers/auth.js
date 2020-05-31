@@ -42,7 +42,7 @@ exports.loginUser = async (req, res) => {
       bcrypt.compare(password, user.password, function (err, result) {
         if (result) {
           //Create Toekn
-          const token = jwt.sign({ email: email }, process.env.PRIVATE_KEY);
+          const token = jwt.sign({ _id: user._id }, process.env.PRIVATE_KEY);
 
           res.json({ status: true, token });
         } else {
