@@ -43,8 +43,14 @@ exports.loginUser = async (req, res) => {
         if (result) {
           //Create Toekn
           const token = jwt.sign({ _id: user._id }, process.env.PRIVATE_KEY);
-
-          res.json({ status: true, token });
+          const userInfo = {
+              _id:user._id,
+              username:user.username,
+              email:user.email,
+              posts:user.posts, 
+              followers: user.followers,
+              following:user.following}
+          res.json({ status: true, token, userInfo });
         } else {
           return res.json({ message: "Password not matched" });
         }
