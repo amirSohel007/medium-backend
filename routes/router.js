@@ -1,27 +1,27 @@
 const routes = require('express').Router();
+const {getPosts, createPost} = require('../controllers/post')
+const {singleUser, getUsers} = require('../controllers/user')
+const {Authorization, registerUser, loginUser, SignOut} = require('../controllers/auth')
 
-const registerUser = require('../controllers/register')
-const createPost = require('../controllers/write-post')
-const getPosts = require('../controllers/get-post')
-const loginUser = require('../controllers/login')
-const getUsers = require('../controllers/user')
-const singleUser = require('../controllers/single-user')
 //login user
 routes.post("/login", loginUser);
 
 //register new user
 routes.post('/register', registerUser);
 
+//Sign out user
+routes.get('/signout', Authorization, SignOut);
+
 // new article
-routes.post('/new-post', createPost);
+routes.post('/new-post', Authorization, createPost);
 
 //all posts
 routes.get('/posts', getPosts);
 
 //all user
-routes.get('/users', getUsers)
+routes.get('/users', Authorization, getUsers)
 
 //single user
-routes.get('/user/:id', singleUser)
+routes.get('/user/:id', Authorization, singleUser)
 
 module.exports = routes;

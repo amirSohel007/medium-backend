@@ -1,7 +1,7 @@
 const Register = require("../models/Register");
 
 //get all registerd users
-getUsers = async (req, res) => {
+exports.getUsers = async (req, res) => {
   try {
     let allusers = await Register.find();
     res.json(allusers);
@@ -10,4 +10,12 @@ getUsers = async (req, res) => {
   }
 };
 
-module.exports = getUsers;
+// Get Single User
+exports.singleUser = async (req, res) => {
+  try {
+    let user = await Register.findById(req.params.id);
+    res.json(user);
+  } catch (error) {
+    res.json({ message: error });
+  }
+};
