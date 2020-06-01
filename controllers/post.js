@@ -10,6 +10,7 @@ exports.createPost = async (req, res) => {
       bodytext: bodytext,
     });
     const data = await newpost.save();
+    data.creationAt = data.createdAt.toDateString()
     res.json(data);
   } catch (error) {
     res.json({ message: error });

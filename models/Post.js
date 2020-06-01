@@ -21,6 +21,11 @@ const CreatePostSchema = Schema({
     type: Array,
     default: 0,
   },
+
+  createdAt: {
+    type: Date,
+    default:new Date().getTime()
+  }
 });
 
 module.exports = mongoose.model("Post", CreatePostSchema);
