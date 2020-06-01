@@ -2,19 +2,18 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CreatePostSchema = Schema({
-  title: {
-    type: String,
-    require: true,
-  },
+  title: {type: String, require: true,},
 
-  bodytext: {
-    type: String,
-    require: true,
-  },
+  bodytext: { type: String,require: true, },
 
   comments: {
     type: String,
     default: 0,
+  },
+
+  postedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "Register",
   },
 
   likes: {
@@ -24,8 +23,8 @@ const CreatePostSchema = Schema({
 
   createdAt: {
     type: Date,
-    default:new Date().getTime()
-  }
+    default: Date.now
+  },
 });
 
 module.exports = mongoose.model("Post", CreatePostSchema);

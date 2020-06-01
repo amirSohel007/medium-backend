@@ -16,9 +16,12 @@ const RegisterSchema = Schema({
     require: true,
   },
 
-  posts: {
-    type: Array,
-  },
+  posts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Post',
+    },
+  ],
 
   followers: {
     type: Array,

@@ -27,3 +27,17 @@ exports.getPosts = async (req, res) => {
   }
 };
 
+
+exports.getPost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    if (!post) {
+      return res.json({ message: "Post is not exist" });
+    } else {
+      res.json(post);
+    }
+  } catch (error) {
+    res.json({ message: error });
+  }
+};
+
