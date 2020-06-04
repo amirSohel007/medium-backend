@@ -3,7 +3,7 @@ const Register = require("../models/Register");
 //get all registerd users
 exports.getUsers = async (req, res) => {
   try {
-    let allusers = await Register.find();
+    let allusers = await Register.find().populate('posts');
     res.json(allusers);
   } catch (error) {
     res.json({ message: error });
